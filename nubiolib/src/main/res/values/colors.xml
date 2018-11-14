@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- BaseActivityColor -->
+    <color name="main_color">#FF5353</color>
+    <color name="maincolor2">#4AD8D9</color>
+
+    <color name="main_title">#333333</color>
+    <color name="fontcolor3">#333333</color>
+    <color name="fontcolor6">#666666</color>
+    <color name="fontcolor9">#999999</color>
+    <color name="tran">#00000000</color>
+    <color name="black">#000000</color>
+    <!-- 首页radiobutton颜色 -->
+    <color name="main_radio">#999999</color>
+    <color name="main_radio_pro">#ffd213</color>
+    <color name="main_radio_text">#868686</color>
+    <color name="main_beanner_p">#06c1ae</color>
+    <color name="main_beanner_n">#ffffff</color>
+    <color name="f8_bg">#F8F8F8</color>
+    <color name="white">#ffffff</color>
+    <color name="red_text">#ff4444</color>
+    <color name="linexolor">#EAEAEA</color>
+</resources>

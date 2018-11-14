@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/tran"
+                android:gravity="center"
+                android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/item_submit_lin"
+        android:layout_width="98dp"
+        android:layout_height="98dp"
+        android:layout_centerInParent="true">
+
+        <com.mlzq.nubiolib.widget.rImageView
+            android:id="@+id/is_submit_image"
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"></com.mlzq.nubiolib.widget.rImageView>
+
+        <ImageView
+            android:id="@+id/is_submit_del"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/btn_red_delete"/>
+    </RelativeLayout>
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/item_submit_lin2"-->
+        <!--android:layout_width="98dp"-->
+        <!--android:layout_height="98dp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--&gt;-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="93dp"-->
+            <!--android:layout_height="93dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:background="@drawable/bian_color333_5"-->
+            <!--android:gravity="center"-->
+            <!--android:scaleType="fitXY">-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="49dp"-->
+                <!--android:layout_height="49dp"-->
+                <!--android:src="@drawable/icon_photograph"/>-->
+        <!--</LinearLayout>-->
+
+    <!--</RelativeLayout>-->
+</RelativeLayout>
