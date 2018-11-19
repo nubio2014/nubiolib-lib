@@ -9,7 +9,6 @@ import android.widget.ListView;
 
 import com.mlzq.nubiolib.R;
 import com.mlzq.nubiolib.app.BaseActivity;
-import com.mlzq.nubiolib.http.L;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -112,7 +111,7 @@ setLeftListener();
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (resultCode){
 			case 1:
-				L.d("传值页面："+data);
+//				L.d("传值页面："+data);
 				setResult(1,data);
 				finish();
 				break;
