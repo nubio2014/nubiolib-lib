@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
 import com.mlzq.nubiolib.other.ShowImageUtils;
-import com.mlzq.nubiolib.widget.CircleNetworkImageView;
+//import com.mlzq.nubiolib.widget.CircleNetworkImageView;
 import com.mlzq.nubiolib.widget.rImageView;
 
 /**
@@ -201,19 +201,19 @@ public class BaseViewHolder {
      * @param color
      * @return
      */
-    public BaseViewHolder setCircleNetworkImageView(int viewId,String url ,int error,int color,boolean isColor){
-        CircleNetworkImageView img=getView(viewId);//   tv_txt=getView(viewId);
-        img.setDefaultImageResId(error);
-     //   img.setImageUrl(url,imageLoader);
-        img.setBorderColor(color);
-        if (isColor)
-            img.setBorderWidth(2);
-        else
-            img.setBorderWidth(0);
-        img.setErrorImageResId(error);
-
-        return this;
-    }
+//    public BaseViewHolder setCircleNetworkImageView(int viewId,String url ,int error,int color,boolean isColor){
+//        CircleNetworkImageView img=getView(viewId);//   tv_txt=getView(viewId);
+//        img.setDefaultImageResId(error);
+//     //   img.setImageUrl(url,imageLoader);
+//        img.setBorderColor(color);
+//        if (isColor)
+//            img.setBorderWidth(2);
+//        else
+//            img.setBorderWidth(0);
+//        img.setErrorImageResId(error);
+//
+//        return this;
+//    }
     /**
      * 设置本地图片
      *
