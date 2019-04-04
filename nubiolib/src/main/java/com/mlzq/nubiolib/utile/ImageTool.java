@@ -1,6 +1,7 @@
 package com.mlzq.nubiolib.utile;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -11,6 +12,16 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.view.Display;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+
+import com.android.volley.toolbox.NetworkImageView;
+import com.mlzq.nubiolib.R;
+import com.mlzq.nubiolib.app.MyNubioLibApplication;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -50,38 +61,38 @@ public class ImageTool {
     }
 
 
-//    public static void showDialogImg(Activity context, String url) {
-//        final Dialog dialog = new Dialog(context, R.style.ActionSheetDialogStyle);
-//        View view = LayoutInflater.from(context).inflate(R.layout.networkimg, null);
-//        NetworkImageView imgclose = (NetworkImageView) view.findViewById(R.id.networkimg);
-//        dialog.setContentView(view);
-//        dialog.show();
-//        Window dialogWindow = dialog.getWindow();
-//        dialogWindow.setGravity(Gravity.CENTER);
-//        dialog.show();
-//        final WindowManager manager = context.getWindowManager();
-//        Display display = manager.getDefaultDisplay();
-//        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-//        lp.width = (int) (display.getWidth() * 0.8);
-//        dialog.getWindow().setAttributes(lp);
-//        imgclose.setDefaultImageResId(R.drawable.faile);
-//        imgclose.setErrorImageResId(R.drawable.faile);
-//        imgclose.setImageUrl(url, MyApplication.getInstance().getImageLoader());
-//        imgclose.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                dialog.dismiss();
-//            }
-//        });
-//        imgclose.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                dialog.dismiss();
-//            }
-//        });
-//
-//    }
+    public static void showDialogImg(Activity context, String url) {
+        final Dialog dialog = new Dialog(context, R.style.ActionSheetDialogStyle);
+        View view = LayoutInflater.from(context).inflate(R.layout.networkimg, null);
+        NetworkImageView imgclose = (NetworkImageView) view.findViewById(R.id.networkimg);
+        dialog.setContentView(view);
+        dialog.show();
+        Window dialogWindow = dialog.getWindow();
+        dialogWindow.setGravity(Gravity.CENTER);
+        dialog.show();
+        final WindowManager manager = context.getWindowManager();
+        Display display = manager.getDefaultDisplay();
+        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+        lp.width = (int) (display.getWidth() * 0.8);
+        dialog.getWindow().setAttributes(lp);
+        imgclose.setDefaultImageResId(R.drawable.faile);
+        imgclose.setErrorImageResId(R.drawable.faile);
+        imgclose.setImageUrl(url, MyNubioLibApplication.getInstance().getImageLoader());
+        imgclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        imgclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+            }
+        });
+
+    }
 
 
 

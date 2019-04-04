@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.mlzq.nubiolib.R;
 
 /**
  * 网络图片的工具类
@@ -112,7 +113,7 @@ public class ShowImageUtils {
               //  .error(errorimg)// 设置错误图片
                 .crossFade()// 设置淡入淡出效果，默认300ms，可以传参
               //  .placeholder(errorimg)// 设置占位图
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)// 缓存修改过的图片
+                .diskCacheStrategy(DiskCacheStrategy.RESULT).error(R.drawable.faile)// 缓存修改过的图片
                 .into(imgeview);
         // Glide.with(context).load(url).thumbnail(0.1f).error(errorimg)
         // .into(imgeview);

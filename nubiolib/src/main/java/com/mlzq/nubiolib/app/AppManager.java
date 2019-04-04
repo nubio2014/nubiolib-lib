@@ -3,6 +3,7 @@ package com.mlzq.nubiolib.app;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 
 import java.util.Stack;
 
@@ -111,4 +112,31 @@ public class AppManager {
         } catch (Exception e) {
         }
     }
+
+    /**
+     * 重新启动App -> 杀进程,会短暂黑屏,启动慢
+     */
+    public void restartApp(Context context,Class welcome) {
+        //启动页
+        Intent intent = new Intent(context, welcome);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
+    /**
+     * 重新启动App -> 不杀进程,缓存的东西不清除,启动快
+     */
+    public void restartApp2(Context context,Class welcome) {
+        final Intent intent = context.getPackageManager()
+                .getLaunchIntentForPackage(context.getPackageName());
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        context.startActivity(intent);
+    }
+
+
+
+
+
+
+
 }

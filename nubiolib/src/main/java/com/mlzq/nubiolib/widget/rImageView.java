@@ -52,7 +52,7 @@ public class rImageView extends ImageView {
     }
 
     public rImageView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        super(context, attrs,  defStyleAttr);
         obtainStyledAttrs(context, attrs, defStyleAttr);
         initViews();
     }

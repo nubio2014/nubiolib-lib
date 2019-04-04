@@ -102,6 +102,21 @@ public class XListView extends ListView implements OnScrollListener {
 				});
 	}
 
+	/**
+	 * 启用或禁用加载更多的功能.
+	 *
+	 * @param enable
+	 */
+	public void setRefreshEnable(boolean enable) {
+		mEnablePullRefresh=enable;
+		if (!enable) {
+			mHeaderView.setVisiableHeight(0);
+			mHeaderView.setVisibility(View.GONE);
+		}else{
+			mHeaderView.show();
+			mHeaderView.setVisibility(View.VISIBLE);
+		}
+	}
 
 
 	/**

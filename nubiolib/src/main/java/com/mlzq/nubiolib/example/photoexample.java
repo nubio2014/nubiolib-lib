@@ -98,7 +98,7 @@
 //                CustomConstants.PREF_TEMP_IMAGES = "pref_temp_images";
 //                IntentConstants.EXTRA_IMAGE_LIST = "image_list";
 //                IntentConstants.EXTRA_BUCKET_NAME = "buck_name";
-//                IntentConstants.EXTRA_CAN_ADD_IMAGE_SIZE = "can_add_image_size";
+//                IntentConstants.EXTRA_CAN_ADD_IMAGE_SIZE = "can_adbd_image_size";
 //                if (position == getDataSize()) {
 //                    new PopupWindows(context.this, mAaGrid);
 //                }

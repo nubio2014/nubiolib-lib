@@ -36,7 +36,7 @@ public class ImageFetcher
 	public static ImageFetcher getInstance(Context context)
 	{
 		// if(context==null)
-		// context = MyApplication.getMyApplicationContext(); TODO
+		// context = MyNubioLibApplication.getMyApplicationContext(); TODO
 
 		if (instance == null)
 		{

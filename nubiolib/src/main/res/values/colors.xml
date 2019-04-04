@@ -24,4 +24,12 @@
     <color name="white">#ffffff</color>
     <color name="red_text">#ff4444</color>
     <color name="linexolor">#EAEAEA</color>
+    <color name="maincolor">#1296db</color>
+    <color name="color_red">#FF5722</color>
+    <color name="color_orange">#FF9800</color>
+    <color name="color_yellow">#FFC107</color>
+    <color name="color_green">#3FB830</color>
+    <color name="color_dark">#263238</color>
+    <color name="color_dark_light">#455A64</color>
+    <color name="color_light">#ECEFF1</color>
 </resources>

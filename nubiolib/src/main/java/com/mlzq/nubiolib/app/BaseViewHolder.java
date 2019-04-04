@@ -13,9 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.NetworkImageView;
 import com.mlzq.nubiolib.other.ShowImageUtils;
-//import com.mlzq.nubiolib.widget.CircleNetworkImageView;
 import com.mlzq.nubiolib.widget.rImageView;
 
 /**
@@ -28,7 +26,7 @@ public class BaseViewHolder {
     private int mPosition;
     public View mConvertView;
     private Context context;
-  //  ImageLoader imageLoader = MyApplication.getInstance().getImageLoader();
+//    ImageLoader imageLoader = MyNubioLibApplication.getInstance().getImageLoader();
 
     public BaseViewHolder(Context context, int postion, int layoutId, ViewGroup parent) {
         this.views = new SparseArray<View>();
@@ -64,13 +62,16 @@ public class BaseViewHolder {
      */
 
     public static BaseViewHolder get(Context context, View convertView, int position, int layoutId, ViewGroup parent) {
-        // BaseViewHolder holder;
-        if (convertView == null) {
+        BaseViewHolder viewHolder;
+//        if (convertView == null) {
+////            viewHolder=new BaseViewHolder(context, position, layoutId, parent);
+//            return new BaseViewHolder(context, position, layoutId, parent);
+//        } else {
+//            return (BaseViewHolder) convertView.getTag();
+//        }
+
             return new BaseViewHolder(context, position, layoutId, parent);
-        } else {
-            return (BaseViewHolder) convertView.getTag();
-        }
-        //return holder;
+
     }
 
     /**
@@ -179,21 +180,21 @@ public class BaseViewHolder {
     }
 /************************************图片控件**********************************************************************************************************/
 
-    public BaseViewHolder setNetworkImageView(int viewId,int error,String url ){
-         NetworkImageView img=getView(viewId);//   tv_txt=getView(viewId);
-         img.setDefaultImageResId(error);
-        img.setErrorImageResId(error);
-       // img.setImageUrl(url,imageLoader);
-
-    return this;
-}
-    public BaseViewHolder setNetworkImageViewLocal(int viewId,int id ){
-        NetworkImageView img=getView(viewId);//   tv_txt=getView(viewId);
-        img.setDefaultImageResId(id);
-
-
-        return this;
-    }
+//    public BaseViewHolder setNetworkImageView(int viewId,int error,String url ){
+//         NetworkImageView img=getView(viewId);//   tv_txt=getView(viewId);
+//         img.setDefaultImageResId(error);
+//        img.setErrorImageResId(error);
+//        img.setImageUrl(url,imageLoader);
+//
+//    return this;
+//}
+//    public BaseViewHolder setNetworkImageViewLocal(int viewId,int id ){
+//        NetworkImageView img=getView(viewId);//   tv_txt=getView(viewId);
+//        img.setDefaultImageResId(id);
+//
+//
+//        return this;
+//    }
     /**
      * 设置原型图标
      * @param viewId
@@ -204,7 +205,7 @@ public class BaseViewHolder {
 //    public BaseViewHolder setCircleNetworkImageView(int viewId,String url ,int error,int color,boolean isColor){
 //        CircleNetworkImageView img=getView(viewId);//   tv_txt=getView(viewId);
 //        img.setDefaultImageResId(error);
-//     //   img.setImageUrl(url,imageLoader);
+//        img.setImageUrl(url,imageLoader);
 //        img.setBorderColor(color);
 //        if (isColor)
 //            img.setBorderWidth(2);

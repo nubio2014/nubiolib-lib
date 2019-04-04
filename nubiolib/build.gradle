@@ -1,14 +1,14 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+
 android {
-    compileSdkVersion 25
-    buildToolsVersion "26.0.2"
+    compileSdkVersion 26
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -22,22 +22,33 @@ android {
 
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-//    implementation 'com.orhanobut:logger:2.1.1'
-    implementation 'com.android.support:appcompat-v7:25.0.0'
-    testCompile 'junit:junit:4.12'
-    implementation files('libs/volley.jar')
-//    implementation 'com.zhy:okhttputils:2.6.2'
-//    implementation 'com.youth.banner:banner:1.4.10'
-    implementation 'com.github.bumptech.glide:glide:3.7.0'
-    implementation 'com.android.support:support-v4:25.0.0'
-//    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.2@aar'
-//    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
-    implementation 'com.android.support:design:23.0.0'
-    implementation 'com.android.support:support-annotations:25.3.1'
-//    implementation files('libs/gson-2.8.0.jar')
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+    api 'com.orhanobut:logger:2.1.1'
+    api 'com.android.support:appcompat-v7:26.+'
+    testImplementation 'junit:junit:4.12'
+    api files('libs/volley.jar')
+//    compile 'com.zhy:okhttputils:2.6.2'
+    api 'com.youth.banner:banner:1.4.10'//轮播图
+    api 'com.github.bumptech.glide:glide:3.7.0'//图片加载框架
+    api 'com.android.support:support-v4:26+'
+
+//    implementation('com.jakewharton:butterknife:8.8.1') {
+//        exclude module: 'support-compat'
+//    }
+//    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+//    implementation project(':nubiolib')
+//    // 需在最外层build.gradle 里添加 classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
+//    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-15'
+//    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-15'
+
+//    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.2@aar'
+//    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+ //   implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+//    compile 'com.android.support:design:23.0.0'
+    api 'com.android.support:support-annotations:25.3.1'
+//    compile files('libs/gson-2.8.0.jar')
+    api 'com.github.liqinew:nohttprxutils:v.2.0.7'//网络请求框架 https://github.com/LiqiNew/NoHttpRxUtils/blob/master/README_CHINESE.md
 
 }
 

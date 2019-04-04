@@ -40,9 +40,7 @@ import java.util.regex.Pattern;
 
 /**
  * @Description:主要功能:文件管理
- * @Prject: CommonUtilLibrary
- * @Package: com.jingewenku.abrahamcaijin.commonutil
- * @author: AbrahamCaiJin
+ * @author: lzq
  * @date: 2017年05月16日 15:30
  * @Copyright: 个人版权所有
  * @Company:
@@ -51,20 +49,14 @@ import java.util.regex.Pattern;
 
 public class FileUtils {
 
-    /**
-     * 文本复制
-     * @param context
-     * @param content
-     */
-    public static void copyContext(Context context,String content){
+    public static void copy(Context context,String message){
         //获取剪贴板管理器：
         ClipboardManager cm = (ClipboardManager)context. getSystemService(Context.CLIPBOARD_SERVICE);
-// 创建普通字符型ClipData
-        ClipData mClipData = ClipData.newPlainText("Label", content);
-// 将ClipData内容放到系统剪贴板里。
+        // 创建普通字符型ClipData
+        ClipData mClipData = ClipData.newPlainText("Label",message);
+        // 将ClipData内容放到系统剪贴板里。
         cm.setPrimaryClip(mClipData);
     }
-
 
 
     private FileUtils() {
@@ -270,8 +262,7 @@ public class FileUtils {
         BufferedReader reader = null;
         StringBuffer sb = new StringBuffer();
         try {
-            reader = new BufferedReader(new InputStreamReader(
-                new FileInputStream(filePath),
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath),
                 System.getProperty("file.encoding")));
             String tempString = null;
             while ((tempString = reader.readLine()) != null) {
@@ -452,6 +443,32 @@ public class FileUtils {
         }
         byte[] data = outStream.toByteArray();
         return new String(data);
+    }
+
+    /**
+     * 获取Assets下的文件内容
+     * @param context
+     * @param filename
+     * @return
+     */
+    public static String readAssets(Context context, String filename){
+        InputStream myInput;
+        try {
+            myInput = context.getAssets().open(filename);//打开asset下的数据库
+            ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int len = 0;
+            while ((len = myInput.read(buffer)) != -1) {
+                outStream.write(buffer, 0, len);
+            }
+            byte[] data = outStream.toByteArray();
+
+            return new String(data);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**

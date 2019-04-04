@@ -119,7 +119,15 @@ public class XListViewHeader extends LinearLayout {
 		lp.height = height;
 		mContainer.setLayoutParams(lp);
 	}
-
+	/**
+	 * 显示视图
+	 */
+	public void show() {
+		LayoutParams lp = (LayoutParams) mContainer
+				.getLayoutParams();
+		lp.height = LayoutParams.WRAP_CONTENT;
+		mContainer.setLayoutParams(lp);
+	}
 	public int getVisiableHeight() {
 		return mContainer.getHeight();
 	}

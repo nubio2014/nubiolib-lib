@@ -26,12 +26,14 @@ public class ToastUtils {
             toast2.show();
         }else{
             twoTime2= System.currentTimeMillis();
-            if (message.equals(oldMsg2)){
-                toast2.show();
-            }else{
-                oldMsg2=message;
-                toast2.setText(message);
-                toast2.show();
+            if (message!=null) {
+                if (message.equals(oldMsg2)) {
+                    toast2.show();
+                } else {
+                    oldMsg2 = message;
+                    toast2.setText(message);
+                    toast2.show();
+                }
             }
         }
         oneTime2=twoTime2;

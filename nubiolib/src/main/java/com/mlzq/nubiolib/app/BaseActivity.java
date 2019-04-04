@@ -3,6 +3,7 @@ package com.mlzq.nubiolib.app;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -37,7 +38,7 @@ public class BaseActivity extends BaseNoTitleActivity {
     ImageView img_right, img_left;
     LinearLayout base_content, title_left;
     RelativeLayout base_title_bg;
-
+    private Context mContext;
 
 
     private PermissionListener mListener;
@@ -47,14 +48,15 @@ public class BaseActivity extends BaseNoTitleActivity {
     private String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private AlertDialog dialog;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//强制竖屏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.base_activity);
-
+        mContext=this;
 
         AppManager.getAppManager().addActivity(this);
         title = (TextView) findViewById(R.id.txt_title);
@@ -65,10 +67,7 @@ public class BaseActivity extends BaseNoTitleActivity {
         title_left = (LinearLayout) findViewById(R.id.title_left);
         base_content = (LinearLayout) findViewById(R.id.base_content);
         base_title_bg = (RelativeLayout) findViewById(R.id.base_title_bg);
-
-        setLeftListener();//默认左键关闭
-
-
+        setLeftListener();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
             StatusBarUtil.immersive(this);
@@ -205,7 +204,10 @@ public class BaseActivity extends BaseNoTitleActivity {
         title.setText(name);
 
     }
+    public void setBaseTitleColor( int namecolor) {
 
+        title.setTextColor(getResources().getColor(namecolor));
+    }
     public void setTitleSize(float size) {
         title.setTextSize(size);
 
@@ -229,7 +231,7 @@ public class BaseActivity extends BaseNoTitleActivity {
 
     public void setRightText(String text, int color) {
         tv_right.setText(text);
-        tv_right.setTextColor(color);
+        tv_right.setTextColor(getResources().getColor(color));
         img_right.setVisibility(View.INVISIBLE);
         tv_right.setVisibility(View.VISIBLE);
     }
@@ -246,10 +248,7 @@ public class BaseActivity extends BaseNoTitleActivity {
         tv_right.setVisibility(View.GONE);
     }
 
-    public void setLeftIcon(int resId) {
-        img_left.setImageDrawable(getResources().getDrawable(resId));
 
-    }
 
     public void setRightListener(View.OnClickListener listener) {
         if (img_right.getVisibility() == View.VISIBLE) {
@@ -259,16 +258,30 @@ public class BaseActivity extends BaseNoTitleActivity {
             tv_right.setOnClickListener(listener);
         }
     }
+    /**
+     * 左图标
+     */
+    public void setLeftIcon(int resId) {
+        img_left.setImageDrawable(getResources().getDrawable(resId));
 
+    }
+    /**
+     * 左图标是否显示
+     */
     public void setLeftVisiable(int view) {
         img_left.setVisibility(view);
 
     }
-
+    /**
+     * 左点击事件
+     */
     public void setLeftListener(View.OnClickListener listener) {
         title_left.setOnClickListener(listener);
     }
 
+    /**
+     * 默认左点击事件
+     */
     public void setLeftListener() {
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -278,6 +291,10 @@ public class BaseActivity extends BaseNoTitleActivity {
         });
     }
 
+    /**
+     * 设置页面
+     * @param view
+     */
     public void setContent(int view) {
         LayoutInflater inflater = LayoutInflater.from(this);
         LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
@@ -285,7 +302,9 @@ public class BaseActivity extends BaseNoTitleActivity {
             base_content.addView(inflater.inflate(view, null), params);
         }catch (Exception e){e.printStackTrace();}
     }
-
+    public String baseGetString(int id){
+        return mContext.getString(id);
+    }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub

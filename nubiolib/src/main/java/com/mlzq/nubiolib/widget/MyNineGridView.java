@@ -10,6 +10,7 @@ import android.widget.GridView;
 
 
 public class MyNineGridView extends GridView {
+	private String defealtLineColor="#EAEAEA";
 	private int rownum;//定义行数
 	public MyNineGridView(Context context) {
 		super(context);
@@ -31,27 +32,40 @@ public class MyNineGridView extends GridView {
 		super.onMeasure(widthMeasureSpec, expandSpec);
 	}
 
+	private static final String TAG = "MyNineGridView";
 	@Override
 	protected void dispatchDraw(Canvas canvas){
 		super.dispatchDraw(canvas);
 		View localView1 = getChildAt(0);
-		int column = getWidth() / localView1.getWidth();
-		int childCount = getChildCount(); //获取Item总数
-		Paint localPaint;
-		localPaint = new Paint();
-		localPaint.setStyle(Paint.Style.STROKE);
-		localPaint.setColor(Color.parseColor("#EAEAEA"));
-		for(int i = 0;i < childCount;i++){
-			View cellView = getChildAt(i);
-			if((i + 1) % column == 0){
-				canvas.drawLine(cellView.getLeft(), cellView.getBottom(), cellView.getRight(), cellView.getBottom(), localPaint);
-			}else if((i + 1) > (childCount - (childCount % column))){
-				canvas.drawLine(cellView.getRight(), cellView.getTop(), cellView.getRight(), cellView.getBottom(), localPaint);
-			}else{
-				canvas.drawLine(cellView.getRight(), cellView.getTop(), cellView.getRight(), cellView.getBottom(), localPaint);
-				canvas.drawLine(cellView.getLeft(), cellView.getBottom(), cellView.getRight(), cellView.getBottom(), localPaint);
+		if(localView1!=null) {
+			int column = getWidth() / localView1.getWidth();
+			int childCount = getChildCount(); //获取Item总数
+
+			Paint localPaint;
+			localPaint = new Paint();
+			localPaint.setStyle(Paint.Style.STROKE);
+			localPaint.setColor(Color.parseColor(defealtLineColor));
+			for (int i = 0; i < childCount; i++) {
+				View cellView = getChildAt(i);
+				if ((i + 1) % column == 0) {
+					canvas.drawLine(cellView.getLeft(), cellView.getBottom(), cellView.getRight(), cellView.getBottom(), localPaint);
+				} else if ((i + 1) > (childCount - (childCount % column))) {
+					canvas.drawLine(cellView.getRight(), cellView.getTop(), cellView.getRight(), cellView.getBottom(), localPaint);
+				} else {
+					canvas.drawLine(cellView.getRight(), cellView.getTop(), cellView.getRight(), cellView.getBottom(), localPaint);
+					canvas.drawLine(cellView.getLeft(), cellView.getBottom(), cellView.getRight(), cellView.getBottom(), localPaint);
+				}
 			}
 		}
 	}
+
+	/**
+	 * 设置GridView边框颜色
+	 * @param linecolor
+	 */
+	public void setDefealtLineColor(String linecolor){
+		this.defealtLineColor=linecolor;
+	}
+
 
 }
