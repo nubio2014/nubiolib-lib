@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
-import com.liqi.nohttputils.interfa.OnIsRequestListener;
 import com.mlzq.nubiolib.R;
 import com.mlzq.nubiolib.app.BaseActivity;
 import com.mlzq.nubiolib.mvpbase.presenter.BasePresenter;
@@ -16,7 +15,7 @@ import com.mlzq.nubiolib.mvpbase.view.BaseView;
  * desc :
  */
 
-public abstract class MVPBaseActivity<T extends BasePresenter> extends BaseActivity implements BaseView,OnIsRequestListener<T> {
+public abstract class MVPBaseActivity<T extends BasePresenter> extends BaseActivity implements BaseView {
 
     LinearLayout ll_content;
     protected T mPrensenter;
@@ -46,15 +45,7 @@ public abstract class MVPBaseActivity<T extends BasePresenter> extends BaseActiv
         setBaseTitleColor(R.color.white);//设置标题字体颜色
     }
 
-    @Override
-    public void onNext(T response) {
 
-    }
-
-    @Override
-    public void onError(Throwable e) {
-
-    }
 
     @Override
     protected void onDestroy() {
