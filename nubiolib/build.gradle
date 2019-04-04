@@ -33,7 +33,7 @@ dependencies {
     //   api 'com.youth.banner:banner:1.4.10'//轮播图
   //  api 'com.github.bumptech.glide:glide:3.7.0'
     //图片加载框架
- //   api 'com.android.support:support-v4:26+'
+    api 'com.android.support:support-v4:26+'
     //    implementation('com.jakewharton:butterknife:8.8.1') {
     //        exclude module: 'support-compat'
     //    }
@@ -48,7 +48,7 @@ dependencies {
     //    compile 'com.android.support:design:23.0.0'
     api 'com.android.support:support-annotations:25.3.1'
     //    compile files('libs/gson-2.8.0.jar')
-       api 'com.github.liqinew:nohttprxutils:v.2.0.7'//网络请求框架 https://github.com/LiqiNew/NoHttpRxUtils/blob/master/README_CHINESE.md
+    //   api 'com.github.liqinew:nohttprxutils:v.2.0.7'//网络请求框架 https://github.com/LiqiNew/NoHttpRxUtils/blob/master/README_CHINESE.md
     api files('libs/glide-3.7.0.jar')
 }
 
